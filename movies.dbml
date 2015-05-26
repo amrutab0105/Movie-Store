@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="movies" Class="moviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\movies.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Lab6_Amruta.Properties.Settings" SettingsPropertyName="moviesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.cast" Member="casts">
+    <Type Name="cast">
+      <Column Name="castID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="nationality" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="birthYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cast_movie" Member="movies" ThisKey="castID" OtherKey="directorID" Type="movie" />
+      <Association Name="cast_movie_cast" Member="movie_casts" ThisKey="castID" OtherKey="actorID" Type="movie_cast" />
+      <Association Name="cast_movie_cast1" Member="movie_casts1" ThisKey="castID" OtherKey="directorID" Type="movie_cast" />
+    </Type>
+  </Table>
+  <Table Name="dbo.movie" Member="movies">
+    <Type Name="movie">
+      <Column Name="movieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="releaseYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="language" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="directorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="movie_movie_cast" Member="movie_casts" ThisKey="movieID" OtherKey="movieID" Type="movie_cast" />
+      <Association Name="movie_movie_genre" Member="movie_genres" ThisKey="movieID" OtherKey="movieID" Type="movie_genre" />
+      <Association Name="cast_movie" Member="cast" ThisKey="directorID" OtherKey="castID" Type="cast" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.movie_cast" Member="movie_casts">
+    <Type Name="movie_cast">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="movieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="actorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="directorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="cast_movie_cast" Member="cast" ThisKey="actorID" OtherKey="castID" Type="cast" IsForeignKey="true" />
+      <Association Name="cast_movie_cast1" Member="cast1" ThisKey="directorID" OtherKey="castID" Type="cast" IsForeignKey="true" />
+      <Association Name="movie_movie_cast" Member="movie" ThisKey="movieID" OtherKey="movieID" Type="movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.movie_genre" Member="movie_genres">
+    <Type Name="movie_genre">
+      <Column Name="movieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="genreID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="genreName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="movie_movie_genre" Member="movie" ThisKey="movieID" OtherKey="movieID" Type="movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

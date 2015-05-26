@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="movies">
+  <DataContextMoniker Name="/moviesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0dde9bd7-97bb-424a-aeff-fbf448378082" absoluteBounds="4.25, 4.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/moviesDataContext/cast" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd882e09-6435-4060-8333-4cdd5dd3f2ce" absoluteBounds="4.2650000000000006, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3dd0a9e1-79e9-4f1b-bc5d-8b2d9b1410bf" absoluteBounds="4.125, 1, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/moviesDataContext/movie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36857b72-a036-4f46-b948-8392cbaa9ec3" absoluteBounds="4.1400000000000006, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e01db45-71e6-44e2-88e5-15ad20b3a92c" absoluteBounds="7.625, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/moviesDataContext/movie_cast" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b918054b-bf20-433f-92d7-8ccb1c429b74" absoluteBounds="7.64, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6ffecba-c1aa-468e-ab83-77fe0500fdb8" absoluteBounds="1.375, 1.25, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/moviesDataContext/movie_genre" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7616385-4fa6-49e5-8f15-c415f959d5d0" absoluteBounds="1.3899999999999997, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.1875 : 4.125); (5.1875 : 2.9631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/moviesDataContext/cast/cast_movie" />
+      <nodes>
+        <classShapeMoniker Id="0dde9bd7-97bb-424a-aeff-fbf448378082" />
+        <classShapeMoniker Id="3dd0a9e1-79e9-4f1b-bc5d-8b2d9b1410bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 5.01044840494792); (8.625 : 5.01044840494792); (8.625 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/moviesDataContext/cast/cast_movie_cast" />
+      <nodes>
+        <classShapeMoniker Id="0dde9bd7-97bb-424a-aeff-fbf448378082" />
+        <classShapeMoniker Id="9e01db45-71e6-44e2-88e5-15ad20b3a92c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 4.53647170247396); (8.0937475 : 4.53647170247396); (8.0937475 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/moviesDataContext/cast/cast_movie_cast1" />
+      <nodes>
+        <classShapeMoniker Id="0dde9bd7-97bb-424a-aeff-fbf448378082" />
+        <classShapeMoniker Id="9e01db45-71e6-44e2-88e5-15ad20b3a92c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 1.78929768880208); (7.625 : 1.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/moviesDataContext/movie/movie_movie_cast" />
+      <nodes>
+        <classShapeMoniker Id="3dd0a9e1-79e9-4f1b-bc5d-8b2d9b1410bf" />
+        <classShapeMoniker Id="9e01db45-71e6-44e2-88e5-15ad20b3a92c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.125 : 1.94314697265625); (3.375 : 1.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/moviesDataContext/movie/movie_movie_genre" />
+      <nodes>
+        <classShapeMoniker Id="3dd0a9e1-79e9-4f1b-bc5d-8b2d9b1410bf" />
+        <classShapeMoniker Id="a6ffecba-c1aa-468e-ab83-77fe0500fdb8" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
